@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://crate.jpg" type="Texture" id=4]
+[ext_resource path="res://crate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://VisibilityNotifier2D.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 511, 17.3291 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 51.2525, 150.294 )
+
+[node name="main" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ -125.596, 67.7932 ]
+}
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+
+[node name="floor" type="StaticBody2D" parent="."]
+editor/display_folded = true
+
+[node name="Shape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2( 497.895, 583.552 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="floor/Shape2D"]
+position = Vector2( 4.15845, 5.31702 )
+scale = Vector2( 15.9375, 0.5625 )
+texture = ExtResource( 3 )
+
+[node name="leftSide" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( -224.249, -8.77867 )
+
+[node name="Shape2D" type="CollisionShape2D" parent="leftSide"]
+position = Vector2( 265.671, 412.989 )
+rotation = -0.523599
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="leftSide/Shape2D"]
+position = Vector2( -2.09308, -5.18292 )
+scale = Vector2( 0.336231, 1.18135 )
+texture = ExtResource( 4 )
+
+[node name="rightSide" type="StaticBody2D" parent="."]
+position = Vector2( 697.186, -10.7923 )
+
+[node name="Shape2D" type="CollisionShape2D" parent="rightSide"]
+position = Vector2( 274.944, 441.807 )
+rotation = 0.523599
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="rightSide/Shape2D"]
+position = Vector2( 0.565308, -13.4287 )
+scale = Vector2( 0.308756, 1.29125 )
+texture = ExtResource( 4 )
+
+[node name="crates" type="Node" parent="."]
+
+[node name="crate" parent="crates" instance=ExtResource( 5 )]
+position = Vector2( 429.592, 461.095 )
+
+[node name="crate2" parent="crates" instance=ExtResource( 5 )]
+position = Vector2( 532.694, 462.527 )
+
+[node name="crate3" parent="crates" instance=ExtResource( 5 )]
+position = Vector2( 532.694, 363.721 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+script = ExtResource( 6 )
