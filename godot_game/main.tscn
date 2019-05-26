@@ -1,14 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://crate.tscn" type="PackedScene" id=4]
-[ext_resource path="res://VisibilityNotifier2D.gd" type="Script" id=5]
-[ext_resource path="res://bunny.tscn" type="PackedScene" id=6]
+[ext_resource path="res://crate.jpg" type="Texture" id=3]
+[ext_resource path="res://VisibilityNotifier2D.gd" type="Script" id=4]
+[ext_resource path="res://bunny.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 511, 17.3291 )
+extents = Vector2( 547.422, 17.3291 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 37.5483, 417.476 )
@@ -24,12 +23,12 @@ __meta__ = {
 [node name="floor" type="StaticBody2D" parent="."]
 
 [node name="Shape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2( 497.895, 583.552 )
+position = Vector2( 505.895, 583.552 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="floor/Shape2D"]
-position = Vector2( 4.15845, 5.31702 )
-scale = Vector2( 15.9375, 0.5625 )
+[node name="Floor" type="Sprite" parent="floor/Shape2D"]
+position = Vector2( 7.36842, -1.28857 )
+scale = Vector2( 4.59532, 0.155798 )
 texture = ExtResource( 3 )
 
 [node name="leftSide" type="StaticBody2D" parent="."]
@@ -48,18 +47,9 @@ shape = SubResource( 2 )
 
 [node name="crates" type="Node" parent="."]
 
-[node name="crate" parent="crates" instance=ExtResource( 4 )]
-position = Vector2( 429.592, 461.095 )
-
-[node name="crate2" parent="crates" instance=ExtResource( 4 )]
-position = Vector2( 532.694, 462.527 )
-
-[node name="crate3" parent="crates" instance=ExtResource( 4 )]
-position = Vector2( 532.694, 363.721 )
-
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
-[node name="bunny" parent="." instance=ExtResource( 6 )]
+[node name="bunny" parent="." instance=ExtResource( 5 )]
 position = Vector2( 503.282, 785.963 )
 z_index = 300
