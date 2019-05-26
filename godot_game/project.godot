@@ -19,6 +19,10 @@ config/name="Cokowiek"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=830
+
 [input]
 
 ui_end={
