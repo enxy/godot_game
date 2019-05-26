@@ -13,6 +13,9 @@ func _ready():
 
 func _on_crate_body_shape_entered(body_id, body, body_shape, local_shape):
 	var bodies = get_colliding_bodies()
+	var floor_node = get_node("/root/main/floor")
+	if floor_node in bodies:
+		queue_free()
 	
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free();

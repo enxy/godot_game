@@ -5,8 +5,6 @@ const velocity = Vector2(0, -300)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_collision_exception_with(get_node("/root/main/floor"))
-	add_collision_exception_with(get_node("/root/main/leftSide"))
-	add_collision_exception_with(get_node("/root/main/rightSide"))
 	linear_velocity.y = -200
 	
 func hit():
