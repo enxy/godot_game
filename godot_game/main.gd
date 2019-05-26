@@ -10,7 +10,7 @@ func _ready():
 # delta czas ktory uplyna od poprzedniej klatki (0.01s)
 func _process(delta):
 	timer+=delta
-	
+			
 	if timer > 1:
 		timer = 0.0
 		var new_object = crate_object.instance()

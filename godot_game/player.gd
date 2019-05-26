@@ -5,6 +5,12 @@ extends RigidBody2D
 # var b = "text"
 var velocity = Vector2()
 var start_position = Vector2(400, 300);
+
+onready var gui = get_node("../GUI")
+onready var scores_label = get_node("../GUI/Scores")
+var lifes = 3
+var scores = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	position = Vector2(400, 300)
@@ -17,9 +23,20 @@ func _physics_process(delta):
 	#if position.x> get_viewport().size.x:
 	#	position = start_position
 		
-func _integrate_forces(state):
+func _integrate_forces(state):		
 	if position.y > get_viewport().size.y:
-#		position = start_position
+
+		if lifes>0:
+			gui.hide_life(lifes)
+		else:
+			gui.reset_lifes()
+			gui.game_over()
+			lifes = 3
+		print(scores_label.set_text(str(scores)))
+		print(scores_label.get_text())
+		lifes = lifes - 1		
+		scores += 1
+		
 		state.transform = Transform2D(0, start_position)
 		state.linear_velocity = Vector2()
 		
