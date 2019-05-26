@@ -4,15 +4,24 @@ extends RigidBody2D
 func _ready():
 	pass # Replace with function body.
 
-#func _physics_process(delta):
+func _physics_process(delta):
 #	var bodies = get_colliding_bodies()
 #	if bodies.size() > 0:
 #
 #		for shape in get_children():
 #			CollisionShape2D.
 
+	var colliding_bodies = get_colliding_bodies()
+	if colliding_bodies:
+		if colliding_bodies[0] is Player:
+			colliding_bodies[0].reduce_lives()
+			queue_free()
+
 func _on_crate_body_shape_entered(body_id, body, body_shape, local_shape):
 	var bodies = get_colliding_bodies()
+	var floor_node = get_node("/root/main/floor")
+	if floor_node in bodies:
+		queue_free()
 	
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free();

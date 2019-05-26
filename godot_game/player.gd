@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Player
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -7,8 +8,8 @@ var velocity = Vector2()
 var start_position = Vector2(400, 300);
 
 onready var gui = get_node("../GUI")
-onready var scores_label = get_node("../GUI/Scores")
 var lifes = 3
+onready var scores_label = get_node("../GUI/Scores")
 var scores = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -23,29 +24,31 @@ func _physics_process(delta):
 	#if position.x> get_viewport().size.x:
 	#	position = start_position
 		
-func _integrate_forces(state):		
-	if position.y > get_viewport().size.y:
-
-		if lifes>0:
-			gui.hide_life(lifes)
-		else:
-			gui.reset_lifes()
-			gui.game_over()
-			lifes = 3
-		print(scores_label.set_text(str(scores)))
-		print(scores_label.get_text())
-		lifes = lifes - 1		
-		scores += 1
-		
-		state.transform = Transform2D(0, start_position)
-		state.linear_velocity = Vector2()
-		
-func create_bullet():
+func _integrate_forces(state):
 	pass
 
+
+#	var colliding_bodies = get_colliding_bodies()
+#	if colliding_bodies:
+#		if Bullet in colliding_bodies:
+
+func add_points():
+	scores += 1
+	scores_label.set_text(str(scores))
+	
+func reduce_lives():
+	lifes -= 1
+	if lifes > 0:
+		gui.hide_life(lifes+1)
+	else:
+		gui.reset_lifes()
+		gui.game_over()
+		lifes = 3
+
+#	state.transform = Transform2D(0, start_position)
+#	state.linear_velocity = Vector2()
+
 func process_input():
-	if Input.is_action_pressed("ui_select"):
-		create_bullet()
 
 	velocity = Vector2( 0, 0)
 
