@@ -27,11 +27,6 @@ func _physics_process(delta):
 func _integrate_forces(state):
 	pass
 
-
-#	var colliding_bodies = get_colliding_bodies()
-#	if colliding_bodies:
-#		if Bullet in colliding_bodies:
-
 func add_points():
 	scores += 1
 	scores_label.set_text(str(scores))
@@ -44,9 +39,8 @@ func reduce_lives():
 		gui.reset_lifes()
 		gui.game_over()
 		lifes = 3
-
-#	state.transform = Transform2D(0, start_position)
-#	state.linear_velocity = Vector2()
+		
+	position = start_position
 
 func process_input():
 
