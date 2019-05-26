@@ -33,6 +33,7 @@ func fire():
 	var bullet = BULLET.instance()
 	bullet.position = self.position
 	bullet.add_collision_exception_with(self)
+
 	get_parent().add_child(bullet)
 	
 func process_input():

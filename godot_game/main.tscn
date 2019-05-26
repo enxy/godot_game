@@ -34,7 +34,6 @@ scale = Vector2( 15.9375, 0.5625 )
 texture = ExtResource( 3 )
 
 [node name="leftSide" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( -224.249, -8.77867 )
 
 [node name="Shape2D" type="CollisionShape2D" parent="leftSide"]
