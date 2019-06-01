@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GUI.gd" type="Script" id=1]
-[ext_resource path="res://life.png" type="Texture" id=2]
+[ext_resource path="res://heart.png" type="Texture" id=2]
 [ext_resource path="res://game_over.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -167,20 +167,20 @@ tracks/5/keys = {
 script = ExtResource( 1 )
 
 [node name="life1" type="Sprite" parent="."]
-position = Vector2( 46.3988, 87.7824 )
-scale = Vector2( 0.212102, 0.1843 )
+position = Vector2( 45.0111, 90.3444 )
+scale = Vector2( 0.100757, 0.0921156 )
 texture = ExtResource( 2 )
 offset = Vector2( -10, -10 )
 
 [node name="life2" type="Sprite" parent="."]
-position = Vector2( 112.715, 92.049 )
-scale = Vector2( 0.212, 0.184 )
+position = Vector2( 118.575, 89.3032 )
+scale = Vector2( 0.0947942, 0.0852311 )
 texture = ExtResource( 2 )
 offset = Vector2( -10, -10 )
 
 [node name="life3" type="Sprite" parent="."]
-position = Vector2( 175.087, 89.8329 )
-scale = Vector2( 0.21, 0.184 )
+position = Vector2( 186.947, 89.5153 )
+scale = Vector2( 0.0927942, 0.0885234 )
 texture = ExtResource( 2 )
 offset = Vector2( -10, -10 )
 
